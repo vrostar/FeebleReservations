@@ -5,7 +5,7 @@
 // require database
 require_once "reservations/database.php";
 
-// if the submit button is activated
+// if the delete button is activated
 if (isset($_POST['submit'])) {
 
     // mysqli escape string to protect against XSS/SQL-injections
@@ -75,13 +75,15 @@ if (isset($_POST['submit'])) {
 </header>
 <section>
 <body>
+<!--ask if the user should be deleted-->
 <h2>Delete - <?= $user['name'] ?></h2>
 <form action="" method="post">
     <p>
-        Weet u zeker dat u het album "<?= $user['name'] ?>" wilt verwijderen?
+        Are you sure you want to delete "<?= $user['name'] ?>" ?
     </p>
+<!--    if the user should be deleted press the delete button-->
     <input type="hidden" name="id" value="<?= $user['id'] ?>"/>
-    <input type="submit" name="submit" value="Verwijderen"/>
+    <input type="submit" name="submit" value="Delete"/>
 </form>
 </body>
 </section>
